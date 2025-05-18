@@ -4,7 +4,7 @@ Goのパッケージ検索とメソッド仕様取得のためのMCPサーバー
 
 ## 概要
 
-godoc_mcpは、Goのパッケージを検索し、そのパッケージに含まれるメソッドの詳細な仕様を取得できるMCPサーバーです。MCP（Model Control Protocol）を使用して、AIモデルと連携して動作します。
+godoc_mcpは、Goのパッケージを検索し、そのパッケージに含まれるメソッドの詳細な仕様を取得できるMCPサーバーです。MCP（Model Context Protocol）を使用して、AIモデルと連携して動作します。
 
 ## 機能
 
@@ -26,44 +26,41 @@ godoc_mcpは、Goのパッケージを検索し、そのパッケージに含ま
 ### 1. MCPサーバーのクローン
 
 ```bash
-git clone https://github.com/yourusername/godoc_mcp.git
+git clone https://github.com/yoshinori0811/godoc_mcp.git
 cd godoc_mcp
 ```
 
 ### 2. MCPサーバーのビルド
 
 ```bash
-go build -o godoc_mcp cmd/server/main.go
+go build -o godoc_mcp.exe cmd/server/main.go
 ```
 
 ### 3. Cursorの設定
 
-1. Cursorを起動し、設定画面を開きます
-2. MCPサーバーの設定で、以下の情報を入力します：
-   - サーバー名: godoc_mcp
-   - ホスト: localhost
-   - ポート: 8080（デフォルト）
-   - パス: /mcp
+1. Cursorを起動し、設定画面（Cursor Settings）を開きます。
+   - **Windows:** `Ctrl + ,` を押す
+   - **Mac:** `Cmd + ,` を押す
+2. 左側のメニューから「MCP」タブを選択し、「+ Add new global MCP server」をクリックします。
+3. 以下の内容で `mcp.json` を作成します。　
+
+```json
+{
+  "mcpServers": {
+    "godoc": {
+      "command": "<godoc_mcp.exeのフルパス>"
+    }
+  }
+}
+```
+
+※ `<godoc_mcp.exeのフルパス>` には、ビルドした `godoc_mcp.exe` の絶対パスを指定してください。
+
+<img src="https://raw.github.com/wiki/yoshinori0811/godoc_mcp/images/godoc_mcp_demo.gif" style="width: 100%;" >
 
 ## 使用方法
 
-1. サーバーの起動
-```bash
-./godoc_mcp
-```
-
-2. パッケージの検索
-```bash
-# 例：fmtパッケージの検索
-search_package packageName="fmt"
-```
-
-3. パッケージ詳細の取得
-```bash
-# 例：fmtパッケージの詳細取得
-details url="https://pkg.go.dev/fmt"
-```
-
+<img src="https://raw.github.com/wiki/yoshinori0811/godoc_mcp/images/mcp_settings.png" style="width: 100%;" >
 ## プロジェクト構造
 
 ```
