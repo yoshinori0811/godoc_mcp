@@ -56,11 +56,11 @@ go build -o godoc_mcp.exe cmd/server/main.go
 
 ※ `<godoc_mcp.exeのフルパス>` には、ビルドした `godoc_mcp.exe` の絶対パスを指定してください。
 
-<img src="https://raw.github.com/wiki/yoshinori0811/godoc_mcp/images/godoc_mcp_demo.gif" style="width: 100%;" >
+<img src="https://raw.github.com/wiki/yoshinori0811/godoc_mcp/images/mcp_settings.png" style="width: 100%;" >
 
 ## 使用方法
 
-<img src="https://raw.github.com/wiki/yoshinori0811/godoc_mcp/images/mcp_settings.png" style="width: 100%;" >
+<img src="https://raw.github.com/wiki/yoshinori0811/godoc_mcp/images/godoc_mcp_demo.gif" style="width: 100%;" >
 ## プロジェクト構造
 
 ```
